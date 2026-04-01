@@ -1,7 +1,21 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "dashscope-result-bj.oss-cn-beijing.aliyuncs.com",
+      },
+      {
+        protocol: "https",
+        hostname: "dashscope-result-sh.oss-cn-shanghai.aliyuncs.com",
+      },
+    ],
+  },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "首页",
+    "generator": "生成器",
+    "gallery": "画廊",
+    "language": "EN"
+  },
+  "hero": {
+    "title": "BSCMAN",
+    "subtitle": "宇宙",
+    "description": "AI驱动的漫画生成，注入BNB之魂。创建令人惊叹的手绘水彩漫画，展现传奇BNB战士。",
+    "cta": "开始创作",
+    "scroll": "滚动探索"
+  },
+  "showcase": {
+    "title": "精选漫画",
+    "subtitle": "通过AI生成艺术探索BSCMAN宇宙"
+  },
+  "cta": {
+    "title": "准备好创作了吗？",
+    "description": "释放你的想象力。用AI在几秒内生成独特的BNB漫画。",
+    "button": "启动生成器"
+  },
+  "generator": {
+    "title": "漫画生成器",
+    "theme": "主题",
+    "theme_placeholder": "例如：BNB战士击败空头...",
+    "panels": "格数",
+    "action": "动作风格",
+    "action_options": {
+      "fighting": "战斗",
+      "heroic": "英雄姿态",
+      "dramatic": "戏剧场景",
+      "comedy": "喜剧"
+    },
+    "dialogue": "对话文本",
+    "dialogue_placeholder": "输入漫画对话...",
+    "generate": "生成漫画",
+    "generating": "生成中...",
+    "download": "下载",
+    "regenerate": "重新生成",
+    "history": "生成历史"
+  },
+  "gallery": {
+    "title": "画廊",
+    "subtitle": "BSCMAN宇宙的社区创作",
+    "empty": "还没有漫画。成为第一个创作者吧！",
+    "view": "查看大图"
+  },
+  "footer": {
+    "powered": "AI驱动",
+    "rights": "BSCMAN宇宙"
+  }
+}

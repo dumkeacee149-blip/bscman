@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "generator": "Generator",
+    "gallery": "Gallery",
+    "language": "中文"
+  },
+  "hero": {
+    "title": "BSCMAN",
+    "subtitle": "UNIVERSE",
+    "description": "AI-powered comic generation with the spirit of BNB. Create stunning hand-drawn watercolor comics featuring the legendary BNB warrior.",
+    "cta": "Start Creating",
+    "scroll": "Scroll to explore"
+  },
+  "showcase": {
+    "title": "Featured Comics",
+    "subtitle": "Explore the BSCMAN Universe through AI-generated art"
+  },
+  "cta": {
+    "title": "Ready to Create?",
+    "description": "Unleash your imagination. Generate unique BNB comics with AI in seconds.",
+    "button": "Launch Generator"
+  },
+  "generator": {
+    "title": "Comic Generator",
+    "theme": "Theme",
+    "theme_placeholder": "e.g., BNB warrior defeating bears...",
+    "panels": "Panels",
+    "action": "Action Style",
+    "action_options": {
+      "fighting": "Fighting",
+      "heroic": "Heroic Pose",
+      "dramatic": "Dramatic Scene",
+      "comedy": "Comedy"
+    },
+    "dialogue": "Dialogue Text",
+    "dialogue_placeholder": "Enter comic dialogue...",
+    "generate": "Generate Comic",
+    "generating": "Generating...",
+    "download": "Download",
+    "regenerate": "Regenerate",
+    "history": "Generation History"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Community creations from the BSCMAN Universe",
+    "empty": "No comics yet. Be the first to create one!",
+    "view": "View Full Size"
+  },
+  "footer": {
+    "powered": "Powered by AI",
+    "rights": "BSCMAN Universe"
+  }
+}
