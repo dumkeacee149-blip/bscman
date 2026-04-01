@@ -1,41 +1,59 @@
-const STYLE_PREFIX = `a full comic book page with multiple panels arranged in grid layout, traditional hand-painted watercolor and india ink on paper, visible wet watercolor washes and brush strokes texture, thick bold black ink outlines, cross-hatching shading, large bold colorful hand-lettered onomatopoeia sound effects (KA-POW WHAM CRASH), round speech bubbles with handwritten dialogue text, ink splatter and drip effects, gritty underground indie comic zine art style, vibrant saturated watercolors, dark black panel borders dividing the page into sequential panels, similar style to ScubaSteve comic art`;
-
-const BNB_CHARACTER = `the main character is a cartoon mascot that looks exactly like this: imagine the Binance BNB diamond logo (a golden yellow square rotated 45 degrees to look like a diamond) but ALIVE as a character - this single large diamond shape IS both the head AND body, with an angry cartoon face painted on it (narrow angry eyes with a frown), two buff muscular GREEN-colored arms with fists coming out of the left and right sides of the diamond, two muscular GREEN-colored legs with black boots coming from the bottom, the diamond body is GOLDEN YELLOW colored, the character wears no clothes just has a gold diamond body with green limbs, similar to how SpongeBob is a sponge with limbs or how the Solana logo was turned into a cartoon character with arms and legs in crypto comics`;
-
 export type ActionStyle = "fighting" | "heroic" | "dramatic" | "comedy";
 
-const ACTION_PROMPTS: Record<ActionStyle, string> = {
-  fighting: "intense combat scene, punching, action lines, impact effects, VA-POW text effects, debris flying",
-  heroic: "heroic pose, cape flowing, standing on mountain peak, dramatic lighting, power aura",
-  dramatic: "dramatic close-up, intense expression, rain falling, dark stormy background, emotional scene",
-  comedy: "funny situation, exaggerated expressions, comedic timing, chibi style moments, sweat drops",
+const STYLE_BASE = "comic book art style, bold black ink outlines, dynamic composition, vibrant colors, professional illustration, high quality";
+
+const BNB_CHARACTER = "a superhero character with a golden diamond-shaped head (the Binance BNB logo rotated 45 degrees), angry determined eyes, muscular green body with purple cape, golden boots";
+
+const ACTION_STYLES: Record<ActionStyle, string> = {
+  fighting: "intense action scene, dynamic punch, speed lines, impact explosion effects, debris flying, KA-POW text effect",
+  heroic: "heroic dramatic pose, cape flowing in wind, standing tall, power aura glowing, dramatic lighting from below",
+  dramatic: "dramatic cinematic close-up, intense expression, dark moody atmosphere, rain or storm, emotional tension",
+  comedy: "funny comedic scene, exaggerated cartoon expressions, chibi moment, sweat drops, comedic timing",
 };
 
-export function buildComicPrompt(params: {
+export function buildPanelPrompt(params: {
   theme: string;
-  panels: number;
   action: ActionStyle;
+  panelIndex: number;
+  totalPanels: number;
   dialogue?: string;
 }): string {
-  const { theme, panels, action, dialogue } = params;
+  const { theme, action, panelIndex, totalPanels, dialogue } = params;
+
+  // Create narrative progression for multi-panel stories
+  const narrativePhase = getNarrativePhase(panelIndex, totalPanels);
 
   const parts = [
-    STYLE_PREFIX,
+    STYLE_BASE,
     BNB_CHARACTER,
-    ACTION_PROMPTS[action],
-    `${panels}-panel comic page layout`,
-    `scene theme: ${theme}`,
+    ACTION_STYLES[action],
+    `scene: ${theme}`,
+    narrativePhase,
   ];
 
   if (dialogue) {
-    parts.push(`speech bubbles with text: "${dialogue}"`);
+    parts.push(`with speech bubble saying: "${dialogue}"`);
   }
-
-  parts.push("black background border between panels, professional comic book page");
 
   return parts.join(", ");
 }
 
+function getNarrativePhase(index: number, total: number): string {
+  if (total === 1) return "single dramatic splash page, full scene";
+
+  const ratio = index / (total - 1);
+
+  if (ratio === 0) {
+    return "opening establishing shot, wide angle, setting the scene, calm before action";
+  } else if (ratio < 0.5) {
+    return "tension building, medium shot, confrontation begins, anticipation";
+  } else if (ratio < 1) {
+    return "climax action moment, extreme close-up or dynamic angle, peak intensity";
+  } else {
+    return "resolution finale shot, aftermath, triumphant or dramatic conclusion";
+  }
+}
+
 export function buildNegativePrompt(): string {
-  return "photorealistic, 3d render, photograph, blurry, low quality, deformed, ugly, bad anatomy, watermark, signature, jpeg artifacts, poorly drawn";
+  return "photorealistic, 3d render, photograph, blurry, low quality, deformed, ugly, bad anatomy, watermark, text, words, letters, poorly drawn, amateur";
 }
